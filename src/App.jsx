@@ -1,28 +1,32 @@
-import { useState } from 'react'
+import Hero from "./components/Hero";
+import CodeSnippets from "./components/CodeSnippets";
+import Features from "./components/Features";
+import Footer from "./components/Footer";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
+    <div className="min-h-screen bg-[#0a0a0b] text-white">
+      <Hero />
+      <CodeSnippets />
+      <Features />
+      <CTA />
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+function CTA() {
+  return (
+    <section className="mx-auto max-w-6xl px-6 pb-12">
+      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-indigo-600/20 via-purple-600/20 to-transparent p-8">
+        <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-indigo-500/30 blur-2xl" />
+        <h3 className="text-2xl font-semibold">Ready when you are</h3>
+        <p className="mt-1 max-w-2xl text-white/80">Spin up passwordless in minutes. Keep your stack, keep your users — just remove the passwords.</p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <a href="#get-started" className="rounded-lg bg-white px-4 py-2.5 text-sm font-medium text-black transition hover:opacity-90">Start free</a>
+          <a href="#docs" className="rounded-lg border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-medium text-white/90 transition hover:bg-white/10">Read docs</a>
+        </div>
+      </div>
+    </section>
+  );
+}
